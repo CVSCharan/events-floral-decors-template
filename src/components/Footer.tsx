@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { theme } from '../styles/theme';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { theme } from "../styles/theme";
 
 const FooterContainer = styled.footer`
   background-color: ${theme.colors.footer};
@@ -15,11 +15,11 @@ const FooterContent = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
@@ -41,7 +41,7 @@ const FooterLink = styled(Link)`
   color: ${theme.colors.white};
   margin-bottom: 0.8rem;
   transition: color 0.3s ease;
-  
+
   &:hover {
     color: ${theme.colors.secondary};
   }
@@ -62,7 +62,7 @@ const SocialIcon = styled.a`
   color: ${theme.colors.white};
   font-size: 1.5rem;
   transition: color 0.3s ease;
-  
+
   &:hover {
     color: ${theme.colors.secondary};
   }
@@ -77,6 +77,13 @@ const Copyright = styled.div`
   font-size: 0.9rem;
 `;
 
+const DeveloperCredit = styled.div`
+  text-align: center;
+  margin-top: 1rem;
+  color: #aaa;
+  font-size: 0.85rem;
+`;
+
 const Footer = () => {
   return (
     <FooterContainer>
@@ -84,7 +91,8 @@ const Footer = () => {
         <FooterColumn>
           <FooterTitle>Bloom Events</FooterTitle>
           <FooterText>
-            Creating unforgettable moments with exquisite floral designs and seamless event management.
+            Creating unforgettable moments with exquisite floral designs and
+            seamless event management.
           </FooterText>
           <SocialLinks>
             <SocialIcon href="#" aria-label="Facebook">
@@ -98,7 +106,7 @@ const Footer = () => {
             </SocialIcon>
           </SocialLinks>
         </FooterColumn>
-        
+
         <FooterColumn>
           <FooterTitle>Quick Links</FooterTitle>
           <FooterLink to="/">Home</FooterLink>
@@ -106,7 +114,7 @@ const Footer = () => {
           <FooterLink to="/services">Services</FooterLink>
           <FooterLink to="/contact">Contact</FooterLink>
         </FooterColumn>
-        
+
         <FooterColumn>
           <FooterTitle>Services</FooterTitle>
           <FooterLink to="/services#weddings">Wedding Decorations</FooterLink>
@@ -114,11 +122,12 @@ const Footer = () => {
           <FooterLink to="/services#parties">Private Parties</FooterLink>
           <FooterLink to="/services#custom">Custom Arrangements</FooterLink>
         </FooterColumn>
-        
+
         <FooterColumn>
           <FooterTitle>Contact Us</FooterTitle>
           <FooterText>
-            <i className="fas fa-map-marker-alt"></i> 123 Blossom Street, Garden City
+            <i className="fas fa-map-marker-alt"></i> 123 Blossom Street, Garden
+            City
           </FooterText>
           <FooterText>
             <i className="fas fa-phone"></i> (555) 123-4567
@@ -128,10 +137,13 @@ const Footer = () => {
           </FooterText>
         </FooterColumn>
       </FooterContent>
-      
+
       <Copyright>
         &copy; {new Date().getFullYear()} Bloom Events. All rights reserved.
       </Copyright>
+      <DeveloperCredit>
+        Designed and Developed by CVS CHARAN
+      </DeveloperCredit>
     </FooterContainer>
   );
 };
