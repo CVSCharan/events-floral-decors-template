@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import Button from '../components/Button';
-import { theme } from '../styles/theme';
+import { useState } from "react";
+import styled from "styled-components";
+import Button from "../components/Button";
+import { theme } from "../styles/theme";
 
 const PageHeader = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/contact-header.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/images/contact-header.jpg");
   background-size: cover;
   background-position: center;
   height: 50vh;
@@ -20,7 +21,7 @@ const PageHeader = styled.div`
 const PageTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     font-size: 2.5rem;
   }
@@ -36,7 +37,7 @@ const ContactGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
@@ -57,9 +58,9 @@ const ContactForm = styled.div`
 const SectionTitle = styled.h2`
   margin-bottom: 2rem;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;
@@ -115,7 +116,7 @@ const SocialIcon = styled.a`
   color: ${theme.colors.white};
   font-size: 1.2rem;
   transition: all 0.3s ease;
-  
+
   &:hover {
     background-color: ${theme.colors.secondary};
     transform: translateY(-3px);
@@ -148,7 +149,7 @@ const Input = styled.input`
   font-family: ${theme.fonts.secondary};
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  
+
   &:focus {
     outline: none;
     border-color: ${theme.colors.primary};
@@ -165,7 +166,7 @@ const Textarea = styled.textarea`
   min-height: 150px;
   resize: vertical;
   transition: border-color 0.3s ease;
-  
+
   &:focus {
     outline: none;
     border-color: ${theme.colors.primary};
@@ -180,7 +181,7 @@ const Select = styled.select`
   font-family: ${theme.fonts.secondary};
   font-size: 1rem;
   transition: border-color 0.3s ease;
-  
+
   &:focus {
     outline: none;
     border-color: ${theme.colors.primary};
@@ -209,45 +210,49 @@ const MapContainer = styled.div`
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    eventDate: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    eventDate: "",
+    message: "",
   });
-  
+
   const [submitted, setSubmitted] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    
+    console.log("Form submitted:", formData);
+
     // For demo purposes, we'll just show a success message
     setSubmitted(true);
-    
+
     // Reset form after submission
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      eventDate: '',
-      message: ''
+      name: "",
+      email: "",
+      phone: "",
+      service: "",
+      eventDate: "",
+      message: "",
     });
-    
+
     // Hide success message after 5 seconds
     setTimeout(() => {
       setSubmitted(false);
     }, 5000);
   };
-  
+
   return (
     <>
       <PageHeader>
@@ -256,7 +261,7 @@ const ContactPage = () => {
           <p>Get in touch to start planning your perfect event</p>
         </div>
       </PageHeader>
-      
+
       <Section>
         <ContactGrid>
           <ContactForm>
@@ -267,7 +272,7 @@ const ContactPage = () => {
                   Thank you for your message! We'll get back to you soon.
                 </SuccessMessage>
               )}
-              
+
               <FormGroup>
                 <Label htmlFor="name">Your Name *</Label>
                 <Input
@@ -279,7 +284,7 @@ const ContactPage = () => {
                   required
                 />
               </FormGroup>
-              
+
               <FormGroup>
                 <Label htmlFor="email">Email Address *</Label>
                 <Input
@@ -291,7 +296,7 @@ const ContactPage = () => {
                   required
                 />
               </FormGroup>
-              
+
               <FormGroup>
                 <Label htmlFor="phone">Phone Number</Label>
                 <Input
@@ -302,7 +307,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                 />
               </FormGroup>
-              
+
               <FormGroup>
                 <Label htmlFor="service">Service of Interest</Label>
                 <Select
@@ -319,7 +324,7 @@ const ContactPage = () => {
                   <option value="other">Other</option>
                 </Select>
               </FormGroup>
-              
+
               <FormGroup>
                 <Label htmlFor="eventDate">Event Date (if applicable)</Label>
                 <Input
@@ -330,7 +335,7 @@ const ContactPage = () => {
                   onChange={handleChange}
                 />
               </FormGroup>
-              
+
               <FormGroup>
                 <Label htmlFor="message">Your Message *</Label>
                 <Textarea
@@ -341,34 +346,38 @@ const ContactPage = () => {
                   required
                 />
               </FormGroup>
-              
-              <Button type="submit" primary>Send Message</Button>
+
+              <Button type="submit" primary>
+                Send Message
+              </Button>
             </Form>
           </ContactForm>
-          
+
           <ContactInfo>
             <SectionTitle>Contact Information</SectionTitle>
-            
+
             <InfoItem>
               <InfoIcon>
                 <i className="fas fa-map-marker-alt"></i>
               </InfoIcon>
               <InfoContent>
                 <InfoTitle>Our Location</InfoTitle>
-                <InfoText>123 Blossom Street, Garden City, NY 10001</InfoText>
+                <InfoText>
+                  123 Main Street, Hyderabad, Telangana 500081
+                </InfoText>
               </InfoContent>
             </InfoItem>
-            
+
             <InfoItem>
               <InfoIcon>
                 <i className="fas fa-phone-alt"></i>
               </InfoIcon>
               <InfoContent>
                 <InfoTitle>Phone Number</InfoTitle>
-                <InfoText>(555) 123-4567</InfoText>
+                <InfoText>+91 9999999999</InfoText>
               </InfoContent>
             </InfoItem>
-            
+
             <InfoItem>
               <InfoIcon>
                 <i className="fas fa-envelope"></i>
@@ -378,7 +387,7 @@ const ContactPage = () => {
                 <InfoText>info@bloomevents.com</InfoText>
               </InfoContent>
             </InfoItem>
-            
+
             <InfoItem>
               <InfoIcon>
                 <i className="fas fa-clock"></i>
@@ -390,7 +399,7 @@ const ContactPage = () => {
                 <InfoText>Sunday: Closed</InfoText>
               </InfoContent>
             </InfoItem>
-            
+
             <SocialLinks>
               <SocialIcon href="#" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
@@ -407,17 +416,17 @@ const ContactPage = () => {
             </SocialLinks>
           </ContactInfo>
         </ContactGrid>
-        
+
         <MapSection>
           <SectionTitle>Find Us</SectionTitle>
           <MapContainer>
             {/* Replace with your preferred map component */}
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343077!2d-73.9844092!3d40.7484405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9aeb1c6b5%3A0x35b1cfbc89a6097f!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1620930800000!5m2!1sen!2sus" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60893.30383237771!2d78.43976082167967!3d17.44544249999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9a7e8f5e1c3b%3A0xb5e13d79b7e5e5eb!2sHyderabad%2C%20Telangana%20500081!5e0!3m2!1sen!2sin!4v1652345678901!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
               loading="lazy"
               title="Bloom Events Location"
             />

@@ -126,11 +126,11 @@ const Footer = () => {
         <FooterColumn>
           <FooterTitle>Contact Us</FooterTitle>
           <FooterText>
-            <i className="fas fa-map-marker-alt"></i> 123 Blossom Street, Garden
-            City
+            <i className="fas fa-map-marker-alt"></i> 123 Main Street,
+            Hyderabad, Telangana 500081 City
           </FooterText>
           <FooterText>
-            <i className="fas fa-phone"></i> (555) 123-4567
+            <i className="fas fa-phone"></i> +91 9999999999
           </FooterText>
           <FooterText>
             <i className="fas fa-envelope"></i> info@bloomevents.com
@@ -142,7 +142,10 @@ const Footer = () => {
         &copy; {new Date().getFullYear()} Bloom Events. All rights reserved.
       </Copyright>
       <DeveloperCredit>
-        Designed and Developed by CVS CHARAN
+        Developed with 💛 by{" "}
+        <a href="https://charan-cvs.dev" target="_blank">
+          CVS CHARAN
+        </a>
       </DeveloperCredit>
     </FooterContainer>
   );

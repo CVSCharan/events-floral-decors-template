@@ -1,10 +1,11 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import Button from '../components/Button';
-import { theme } from '../styles/theme';
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";
+import { theme } from "../styles/theme";
 
 const PageHeader = styled.div`
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/about-header.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
   background-position: center;
   height: 50vh;
@@ -20,7 +21,7 @@ const PageHeader = styled.div`
 const PageTitle = styled.h1`
   font-size: 3rem;
   margin-bottom: 1rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     font-size: 2.5rem;
   }
@@ -35,12 +36,29 @@ const Section = styled.section`
 const SectionTitle = styled.h2`
   margin-bottom: 2rem;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: ${theme.colors.secondary};
+  }
+`;
+
+const MeetOurTeamSectionTitle = styled.h2`
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 60px;
     height: 3px;
     background-color: ${theme.colors.secondary};
@@ -52,7 +70,7 @@ const StorySection = styled.div`
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   align-items: center;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
   }
@@ -63,7 +81,7 @@ const StoryImage = styled.img`
   height: auto;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     order: 1;
   }
@@ -96,11 +114,11 @@ const ValuesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
@@ -113,7 +131,7 @@ const ValueCard = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   text-align: center;
   transition: transform 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-10px);
   }
@@ -143,11 +161,11 @@ const TeamGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  
+
   @media (max-width: ${theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   @media (max-width: ${theme.breakpoints.mobile}) {
     grid-template-columns: 1fr;
   }
@@ -158,11 +176,23 @@ const TeamMember = styled.div`
 `;
 
 const MemberImage = styled.img`
-  width: 100%;
-  height: auto;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 50%;
   margin-bottom: 1.5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: ${theme.breakpoints.tablet}) {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media (max-width: ${theme.breakpoints.mobile}) {
+    width: 180px;
+    height: 180px;
+  }
 `;
 
 const MemberName = styled.h3`
@@ -204,34 +234,48 @@ const AboutPage = () => {
       <PageHeader>
         <div>
           <PageTitle>About Bloom Events</PageTitle>
-          <p>Our story, our values, and the passionate team behind the blooms</p>
+          <p>
+            Our story, our values, and the passionate team behind the blooms
+          </p>
         </div>
       </PageHeader>
-      
+
       <Section>
         <StorySection>
           <StoryContent>
             <SectionTitle>Our Story</SectionTitle>
             <StoryText>
-              Founded in 2010, Bloom Events began as a small floral design studio with a passion for creating beautiful arrangements that tell a story. What started as a dream has blossomed into a full-service event management and floral design company.
+              Founded in 2010, Bloom Events began as a small floral design
+              studio with a passion for creating beautiful arrangements that
+              tell a story. What started as a dream has blossomed into a
+              full-service event management and floral design company.
             </StoryText>
             <StoryText>
-              Our journey has been marked by creativity, dedication, and a commitment to bringing our clients' visions to life. Over the years, we've had the privilege of being part of countless special moments, from intimate weddings to grand corporate galas.
+              Our journey has been marked by creativity, dedication, and a
+              commitment to bringing our clients' visions to life. Over the
+              years, we've had the privilege of being part of countless special
+              moments, from intimate weddings to grand corporate galas.
             </StoryText>
             <StoryText>
-              Today, our team of talented designers and event planners continues to push the boundaries of floral artistry and event management, creating unforgettable experiences that leave a lasting impression.
+              Today, our team of talented designers and event planners continues
+              to push the boundaries of floral artistry and event management,
+              creating unforgettable experiences that leave a lasting
+              impression.
             </StoryText>
             <Link to="/services">
               <Button>Explore Our Services</Button>
             </Link>
           </StoryContent>
-          <StoryImage src="/images/our-story.jpg" alt="Bloom Events founder arranging flowers" />
+          <StoryImage
+            src="/images/our-story.jpg"
+            alt="Bloom Events founder arranging flowers"
+          />
         </StorySection>
       </Section>
-      
+
       <ValuesSection>
         <ValuesContainer>
-          <SectionTitle style={{ textAlign: 'center', marginBottom: '3rem' }}>Our Values</SectionTitle>
+          <MeetOurTeamSectionTitle>Our Values</MeetOurTeamSectionTitle>
           <ValuesGrid>
             <ValueCard>
               <ValueIcon>
@@ -239,100 +283,114 @@ const AboutPage = () => {
               </ValueIcon>
               <ValueTitle>Passion</ValueTitle>
               <ValueText>
-                We pour our hearts into every arrangement and event, bringing enthusiasm and dedication to everything we create.
+                We pour our hearts into every arrangement and event, bringing
+                enthusiasm and dedication to everything we create.
               </ValueText>
             </ValueCard>
-            
+
             <ValueCard>
               <ValueIcon>
                 <i className="fas fa-gem"></i>
               </ValueIcon>
               <ValueTitle>Quality</ValueTitle>
               <ValueText>
-                We source the finest flowers and materials, ensuring that every detail meets our high standards of excellence.
+                We source the finest flowers and materials, ensuring that every
+                detail meets our high standards of excellence.
               </ValueText>
             </ValueCard>
-            
+
             <ValueCard>
               <ValueIcon>
                 <i className="fas fa-lightbulb"></i>
               </ValueIcon>
               <ValueTitle>Creativity</ValueTitle>
               <ValueText>
-                We approach each project with fresh eyes, creating unique designs that reflect our clients' personalities and visions.
+                We approach each project with fresh eyes, creating unique
+                designs that reflect our clients' personalities and visions.
               </ValueText>
             </ValueCard>
-            
+
             <ValueCard>
               <ValueIcon>
                 <i className="fas fa-handshake"></i>
               </ValueIcon>
               <ValueTitle>Integrity</ValueTitle>
               <ValueText>
-                We build relationships based on trust, transparency, and honest communication with our clients and partners.
+                We build relationships based on trust, transparency, and honest
+                communication with our clients and partners.
               </ValueText>
             </ValueCard>
-            
+
             <ValueCard>
               <ValueIcon>
                 <i className="fas fa-leaf"></i>
               </ValueIcon>
               <ValueTitle>Sustainability</ValueTitle>
               <ValueText>
-                We are committed to eco-friendly practices, minimizing waste and sourcing locally whenever possible.
+                We are committed to eco-friendly practices, minimizing waste and
+                sourcing locally whenever possible.
               </ValueText>
             </ValueCard>
-            
+
             <ValueCard>
               <ValueIcon>
                 <i className="fas fa-users"></i>
               </ValueIcon>
               <ValueTitle>Collaboration</ValueTitle>
               <ValueText>
-                We work closely with our clients, listening to their needs and bringing their visions to life through teamwork.
+                We work closely with our clients, listening to their needs and
+                bringing their visions to life through teamwork.
               </ValueText>
             </ValueCard>
           </ValuesGrid>
         </ValuesContainer>
       </ValuesSection>
-      
+
       <Section>
         <TeamSection>
-          <SectionTitle style={{ textAlign: 'center', marginBottom: '3rem' }}>Meet Our Team</SectionTitle>
+          <MeetOurTeamSectionTitle>Meet Our Team</MeetOurTeamSectionTitle>
           <TeamGrid>
             <TeamMember>
               <MemberImage src="/images/team-1.jpg" alt="Emily Parker" />
               <MemberName>Emily Parker</MemberName>
               <MemberTitle>Founder & Creative Director</MemberTitle>
               <MemberBio>
-                With over 15 years of experience in floral design, Emily's artistic vision and passion for creating beautiful experiences are the heart of Bloom Events.
+                With over 15 years of experience in floral design, Emily's
+                artistic vision and passion for creating beautiful experiences
+                are the heart of Bloom Events.
               </MemberBio>
             </TeamMember>
-            
+
             <TeamMember>
               <MemberImage src="/images/team-2.jpg" alt="David Chen" />
               <MemberName>David Chen</MemberName>
               <MemberTitle>Event Planning Director</MemberTitle>
               <MemberBio>
-                David's meticulous attention to detail and exceptional organizational skills ensure that every event runs smoothly from concept to execution.
+                David's meticulous attention to detail and exceptional
+                organizational skills ensure that every event runs smoothly from
+                concept to execution.
               </MemberBio>
             </TeamMember>
-            
+
             <TeamMember>
               <MemberImage src="/images/team-3.jpg" alt="Sophia Rodriguez" />
               <MemberName>Sophia Rodriguez</MemberName>
               <MemberTitle>Lead Floral Designer</MemberTitle>
               <MemberBio>
-                Sophia's innovative approach to floral design and her ability to transform spaces with stunning arrangements have made her an invaluable part of our team.
+                Sophia's innovative approach to floral design and her ability to
+                transform spaces with stunning arrangements have made her an
+                invaluable part of our team.
               </MemberBio>
             </TeamMember>
           </TeamGrid>
         </TeamSection>
-        
+
         <CTASection>
           <CTATitle>Let's Create Something Beautiful Together</CTATitle>
           <CTAText>
-            Whether you're planning a wedding, corporate event, or special celebration, our team is ready to bring your vision to life with our creative expertise and attention to detail.
+            Whether you're planning a wedding, corporate event, or special
+            celebration, our team is ready to bring your vision to life with our
+            creative expertise and attention to detail.
           </CTAText>
           <Link to="/contact">
             <Button>Contact Us</Button>
